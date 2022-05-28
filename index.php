@@ -26,6 +26,12 @@
     
     <?php include('components/header.php'); ?>
 
+    <?php 
+      $title = 'Home';
+ 
+      include('components/banner.php'); 
+    ?>
+
     <div class="wpo-product-section section-padding">
     <div class="container">
     <div class="row justify-content-center">
