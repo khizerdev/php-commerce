@@ -22,7 +22,7 @@
                               <i class="fa fa-star" aria-hidden="true"></i>
                               <i class="fa fa-star" aria-hidden="true"></i>
                           </div>
-                          <h2><a href="product-single.html"><?php echo $row['name']; ?></a></h2>
+                          <h2><a href="product.php?<?php echo $row['slug']; ?>"><?php echo $row['name']; ?></a></h2>
                           <div class="product-price">
                               <ul>
                                 
