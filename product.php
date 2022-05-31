@@ -109,7 +109,7 @@ if(isset($_GET['title'])) {
                                 
                                     <div class="pro-single-btn">
                                         <div class="quantity cart-plus-minus">
-                                            <input name="product_quantity" type="number" value="1">
+                                            <input name="quantity" type="number" value="1">
                                             <div class="dec qtybutton"></div>
                                             <div class="inc qtybutton"></div>
                                         </div>
