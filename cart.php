@@ -4,7 +4,14 @@ include __DIR__ . "/server/connection.php";
 
 session_start();
 
-if(isset($_SESSION['cart'])) {
+if(isset($_POST['remove'])) {
+
+
+    $product_id = $_POST['product_id'];
+
+    unset($_SESSION['cart'][$product_id]);
+
+} elseif(isset($_SESSION['cart'])) {
 
     $ids = array_column($_SESSION['cart'],"product_id");
 
@@ -94,7 +101,7 @@ if(isset($_SESSION['cart'])) {
                     <div class="cart-wrapper">
                         <div class="row">
                             <div class="col-12">
-                                <form action="https://wpocean.com/html/tf/organtio/cart">
+                           
                                     <table class="table-responsive cart-wrap">
                                         <thead>
                                             <tr>
@@ -133,9 +140,10 @@ if(isset($_SESSION['cart'])) {
                                                 <td class="ptice">$<?php echo $item['price'] ?></td>
                                                 <td class="stock">$ <?php echo $item['price']*$item['quantity'] ?></td>
                                                 <td class="action">
-                                                    <ul>
-                                                        <li class="w-btn"><a data-bs-toggle="tooltip" data-bs-html="true" title="" href="#" data-bs-original-title="Remove to Cart" aria-label="Remove to Cart"><img src="assets/images/ft-icon/delete-icon.svg" alt=""></a></li>
-                                                    </ul>
+                                                    <form action="cart.php" method="post">
+                                                        <input type="hidden" name="product_id" value="<?php echo $key ?>">
+                                                        <input name="remove" title="Remove From Cart" class="btn btn-danger" type="submit" value="X">
+                                                    </form>
                                                 </td>
                                             </tr>
                                             <?php } } ?>
@@ -143,7 +151,7 @@ if(isset($_SESSION['cart'])) {
                                          
                                         </tbody>
                                     </table>
-                                </form>
+                       
                                 <div class="submit-btn-area">
                                     <ul>
                                         <li><a class="theme-btn" href="shop.html">Continue Shopping <i class="fa fa-angle-double-right"></i></a></li>
