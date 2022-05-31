@@ -47,8 +47,10 @@ if(isset($_GET['title'])) {
     <div class="product-single-section section-padding">
             <div class="container">
 
-            <?php while($row = $product->fetch_assoc()) { ?>
-                <form action="">
+            <?php while($row = $product->fetch_assoc()) {  ?>
+                <form action="cart.php" method="post">
+                    <input type="hidden" name="product_id" value="<?php echo $row['id']; ?>">
+
                     <div class="product-details">
                         <div class="row align-items-center">
                             <div class="col-lg-5">
@@ -107,11 +109,11 @@ if(isset($_GET['title'])) {
                                 
                                     <div class="pro-single-btn">
                                         <div class="quantity cart-plus-minus">
-                                            <input type="text" value="1">
+                                            <input name="product_quantity" type="number" value="1">
                                             <div class="dec qtybutton"></div>
                                             <div class="inc qtybutton"></div>
                                         </div>
-                                        <a href="cart.php" class="theme-btn">Add to cart</a>
+                                        <button type="submit" class="theme-btn">Add to cart</button>
                                     </div>
                                     <div class="social-share">
                                         <span>Share with : </span>
