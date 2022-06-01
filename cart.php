@@ -11,6 +11,17 @@ if(isset($_POST['remove'])) {
 
     unset($_SESSION['cart'][$product_id]);
 
+} elseif(isset($_POST['qty'])) {
+
+
+    $product_id = $_POST['product_id'];
+
+    $product = $_SESSION['cart'][$product_id];
+
+    $product['quantity'] = $_POST['qty'];
+
+    $_SESSION['cart'][$product_id] = $product;
+
 } elseif(isset($_SESSION['cart'])) {
 
     $ids = array_column($_SESSION['cart'],"product_id");
@@ -131,11 +142,12 @@ if(isset($_POST['remove'])) {
                                                     </ul>
                                                 </td>
                                                 <td class="stock">
-                                                    <ul class="input-style">
+                                                    <form method="post" action="cart.php" class="input-style">
+                                                    <input type="hidden" name="product_id" value="<?php echo $key ?>">
                                                         <li class="quantity cart-plus-minus">
-                                                            <input type="text" value="<?php echo $item['quantity'] ?>">
+                                                            <input class="qty" type="number" name="qty" value="<?php echo $item['quantity'] ?>" readonly>
                                                         <div class="dec qtybutton">-</div><div class="inc qtybutton">+</div></li>
-                                                    </ul>
+                                                    </form>
                                                 </td>
                                                 <td class="ptice">$<?php echo $item['price'] ?></td>
                                                 <td class="stock">$ <?php echo $item['price']*$item['quantity'] ?></td>
@@ -186,6 +198,23 @@ if(isset($_POST['remove'])) {
     <?php include('components/footer.php'); ?>
 
     <?php include('components/script.php'); ?>
+
+    <script>
+
+$(document).ready(function () {
+    
+         
+
+
+         $('.dec , .inc').click(function (e) {
+             console.log('sds')
+             var form = $(this).closest('form').submit();
+        
+            
+         })
+      });
+
+    </script>
 
 </body>
 </html>
