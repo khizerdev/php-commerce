@@ -130,7 +130,14 @@ if(isset($_POST['remove'])) {
 
                                                     if($cart) { 
 
+                                                    $sub_price = 0;
+                                                    $delivery_charges = 10;
+                                                    $total_price = $delivery_charges;
+
                                                     foreach ($cart as $key => $item){
+
+                                                    $sub_price += $item['price']*$item['quantity'];
+                                                    $total_price += $item['price']*$item['quantity'];
                                             ?>
                                             <tr>
                                                 <td class="images"><img src="<?php echo $item['image'] ?>" alt=""></td>
@@ -166,18 +173,16 @@ if(isset($_POST['remove'])) {
                        
                                 <div class="submit-btn-area">
                                     <ul>
-                                        <li><a class="theme-btn" href="shop.html">Continue Shopping <i class="fa fa-angle-double-right"></i></a></li>
-                                        <li><button type="submit">Update Cart</button></li>
+                                        
+                                        <li><a class="theme-btn">Continue Shopping <i class="fa fa-angle-double-right"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="cart-product-list">
                                     <ul>
-                                        <li>Total product<span>( 05 )</span></li>
-                                        <li>Sub Price<span>$2250</span></li>
-                                        <li>Vat<span>$50</span></li>
-                                        <li>Eco Tax<span>$100</span></li>
-                                        <li>Delivery Charge<span>$100</span></li>
-                                        <li class="cart-b">Total Price<span>$2500</span></li>
+                                        <li>Total product<span>( <?php echo count($cart); ?> )</span></li>
+                                        <li>Sub Price<span>$<?php echo $sub_price ?></span></li>
+                                        <li>Delivery Charge<span>$<?php echo $delivery_charges; ?></span></li>
+                                        <li class="cart-b">Total Price<span>$<?php echo $total_price; ?></span></li>
                                     </ul>
                                 </div>
 
