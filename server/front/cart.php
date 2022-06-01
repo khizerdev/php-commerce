@@ -24,15 +24,19 @@ if(isset($_POST['remove'])) {
 
 } elseif(isset($_SESSION['cart'])) {
 
-    $ids = array_column($_SESSION['cart'],"product_id");
+    if(isset($_POST['product_id'])) {
+        $ids = array_column($_SESSION['cart'],"product_id");
 
-    if(!in_array($_POST['product_id'] , $ids)) {
+        if(!in_array($_POST['product_id'] , $ids)) {
 
-        addProduct($_POST['product_id']);
+            addProduct($_POST['product_id']);
 
-    } else {
-        
+        } else {
+            
+        }
     }
+
+    
 
 
 } else {

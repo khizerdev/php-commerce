@@ -108,7 +108,7 @@ include __DIR__ . "/server/front/cart.php";
 
                                 <div class="submit-btn-area">
                                     <ul>
-                                        <li><a class="theme-btn" href="checkout.html">Proceed to Checkout <i class="fa fa-angle-double-right"></i></a></li>
+                                        <li><a class="theme-btn" href="checkout.php">Proceed to Checkout <i class="fa fa-angle-double-right"></i></a></li>
                                     </ul>
                                 </div>
                             </div>

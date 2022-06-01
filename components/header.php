@@ -187,8 +187,8 @@
                                     <div class="mini-cart-action clearfix">
                                         <span class="mini-checkout-price">Subtotal: <span>$215.14</span></span>
                                         <div class="mini-btn">
-                                            <a href="checkout.html" class="view-cart-btn s1">Checkout</a>
-                                            <a href="cart.html" class="view-cart-btn">View Cart</a>
+                                            <a href="checkout.php" class="view-cart-btn s1">Checkout</a>
+                                            <a href="cart.php" class="view-cart-btn">View Cart</a>
                                         </div>
                                     </div>
                                 </div>
