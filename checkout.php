@@ -10,6 +10,38 @@ if(count($cart) < 0) {
     header('location: index.php');
 }
 
+if(!empty($_POST)) {
+
+    $name = $_POST['name'];
+    $city = $_POST['city'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $notes = $_POST['notes'];
+
+    var_dump($notes);
+
+ 
+    $delivery_charges = 10;
+    $total = $delivery_charges;
+
+    foreach ($cart as $key => $item){
+        $total += $item['price']*$item['quantity'];
+    }
+    
+    $sql = "INSERT INTO orders(user_id,name,phone,city,address,total,notes) VALUES()";
+
+    $stmt = $conn->prepare($sql);
+
+    if(!$stmt){
+        echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
+     }
+    $stmt->execute();
+
+
+
+    echo $stmt->insert_id;
+}
+
 
 ?>
 
@@ -34,7 +66,7 @@ if(count($cart) < 0) {
 
 <div class="checkout-area section-padding">
             <div class="container">
-                <form>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                     <div class="checkout-wrap">
                         <div class="row">
                             <div class="col-lg-8 col-12">
@@ -49,20 +81,20 @@ if(count($cart) < 0) {
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-12 col-12">
                                                         <label for="fname1">First Name</label>
-                                                        <input type="text" placeholder="" id="fname1" name="fname">
+                                                        <input type="text" placeholder="" name="name" required>
                                                     </div>
                                                    
                                                     <div class="col-lg-6 col-md-12 col-12">
                                                         <label for="City">City</label>
-                                                        <input type="text" placeholder="" id="City" name="City">
+                                                        <input type="text" placeholder="" name="city" required>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-12">
                                                         <label for="Adress">Address</label>
-                                                        <input type="text" placeholder="" id="Adress" name="Adress">
+                                                        <input type="text" placeholder="" name="address" required>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-12">
                                                         <label for="Post2">Phone</label>
-                                                        <input type="text" placeholder="" id="Post2" name="Post">
+                                                        <input type="text" placeholder="" name="phone" required>
                                                     </div>
                                                     
                                                 </div>
@@ -71,7 +103,7 @@ if(count($cart) < 0) {
                                                 
                                                 <div class="note-area">
                                                     <p>Order Notes </p>
-                                                    <textarea name="massage" placeholder="Note about your order"></textarea>
+                                                    <textarea name="notes" placeholder="Note about your order"></textarea>
                                                 </div>
                                                 <div class="submit-btn-area">
                                                     <ul>
@@ -118,7 +150,7 @@ if(count($cart) < 0) {
                                                     if($cart) { 
 
                                                     $sub_price = 0;
-                                                    $delivery_charges = 10;
+                                                    $delivery_charges = 10;         
                                                     $total_price = $delivery_charges;
 
                                                     foreach ($cart as $key => $item){
