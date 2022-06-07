@@ -6,6 +6,7 @@ session_start();
 
 $cart = $_SESSION['cart'];
 
+
 if(count($cart) < 0) {
     header('location: index.php');
 }
@@ -17,9 +18,7 @@ if(!empty($_POST)) {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
     $notes = $_POST['notes'];
-
-    var_dump($notes);
-
+    $user_id = 1;
  
     $delivery_charges = 10;
     $total = $delivery_charges;
@@ -28,18 +27,45 @@ if(!empty($_POST)) {
         $total += $item['price']*$item['quantity'];
     }
     
-    $sql = "INSERT INTO orders(user_id,name,phone,city,address,total,notes) VALUES()";
+    $sql = "INSERT INTO orders(user_id,name,phone,city,address,total,notes) VALUES(?,?,?,?,?,?,?)";
 
     $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param('isissis' , $user_id,$name,$phone,$city,$address,$total,$notes);
 
     if(!$stmt){
         echo "Prepare failed: (". $conn->errno.") ".$conn->error."<br>";
      }
     $stmt->execute();
 
+    $order_id = $stmt->insert_id ? $stmt->insert_id : 1;
 
 
-    echo $stmt->insert_id;
+    $cart = $_SESSION['cart'];
+
+    foreach($cart as $key => $value) {
+        
+        $product = $cart[$key];
+
+        $id = $product['id'];
+        // $name = $product['name'];
+        // $image = $product['image'];
+        $price = $product['price'];
+        // $category = $product['category'];
+        $qty = $product['quantity'];
+
+        $total = $price*$qty;
+
+        $sql = "INSERT into order_items(order_id,product_id,qty,price,total) VALUES(?,?,?,?,?)";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param('iiiii' , $order_id,$id,$qty,$price,$total);
+
+        $stmt->execute();
+
+    }
+
 }
 
 
@@ -142,7 +168,7 @@ if(!empty($_POST)) {
                                 <div class="cout-order-area">
                                     <div class="oreder-item ">
                                         <ul>
-                                            <li class="o-header">Your Order<span>( 6 )</span></li>
+                                            <li class="o-header">Your Order<span></span></li>
 
                                             <?php 
                                                     $cart = $_SESSION['cart'];
