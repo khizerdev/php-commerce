@@ -58,27 +58,10 @@
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">Pages</a>
+                                    <a href="#">My Account</a>
                                     <ul class="sub-menu">
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="404.html">404 Error</a></li>
-                                        <li><a href="team-single.html">Team Single</a></li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Product</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="product.html">Product</a></li>
-                                                <li><a href="product-single.html">Product Single</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Project</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="project.html">Project</a></li>
-                                                <li><a href="project-single.html">Project Single</a></li>
-                                            </ul>
-                                        </li>
+                                        <li><a href="login.php">Login</a></li>
+                                        <li><a href="register.php">Register</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>

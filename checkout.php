@@ -66,6 +66,8 @@ if(!empty($_POST)) {
 
     }
 
+    unset($_SESSION['cart']);
+
 }
 
 
