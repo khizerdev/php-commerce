@@ -41,7 +41,7 @@ include __DIR__ . "/server/front/register.php";
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                 <div class="mb-3">
                     <label class="form-label">Name</label>
-                    <input type="text" class="form-control" name="name" required>
+                    <input type="text" class="form-control" name="name">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Email address</label>
