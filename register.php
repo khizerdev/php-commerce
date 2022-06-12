@@ -4,7 +4,6 @@ include __DIR__ . "/server/connection.php";
 
 include __DIR__ . "/server/front/register.php";
 
-
 ?>
 
 
