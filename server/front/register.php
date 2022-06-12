@@ -105,21 +105,18 @@ if(!empty($_POST)) {
                     $_SESSION['email'] = $email;
                     $_SESSION['logged_in'] = true;
         
-                    header('location: account.php');
+                    header('location: dashboard.php');
         
         
                 } 
                 else {
-                    echo "Failed";
-                //     session_start();
-        
-                //     $_SESSION['toastr'] = array(
-                //         'type'      => 'error', // or 'success' or 'info' or 'warning'
-                //         'message' => 'Something went wrong',
-                //         'title' =>'Error',
-                //     );
-        
-                //     header('location : register.php');
+
+                    $_SESSION['toastr'] = array(
+                        'type'      => 'error', // or 'success' or 'info' or 'warning'
+                        'message' => 'Something went wrong',
+                        'title' =>'error',
+                    );
+
                 }
             }
 

@@ -55,7 +55,7 @@ if(!empty($_POST)) {
                 $_SESSION['email'] = $email;
                 $_SESSION['logged_in'] = true;
     
-                header('location: account.php');
+                header('location: dashboard.php');
                 exit();
     
         
