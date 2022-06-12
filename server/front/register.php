@@ -86,7 +86,7 @@ if(!empty($_POST)) {
                 $stmt = $conn->prepare($sql);
             
             
-                $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+                $password = md5($_POST['password']);
                 $stmt->bind_param('sss' , $name,$email,$password);
             
                 if(!$stmt){
