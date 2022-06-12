@@ -101,11 +101,11 @@ if(!empty($_POST)) {
                         'title' =>'OK',
                     );
         
-                    // $_SESSION['name'] = $name;
-                    // $_SESSION['email'] = $email;
-                    // $_SESSION['login'] = true;
+                    $_SESSION['name'] = $name;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['logged_in'] = true;
         
-                    // header('location : account.php');
+                    header('location: account.php');
         
         
                 } 
@@ -135,6 +135,8 @@ if(!empty($_POST)) {
 
 
 
+} elseif(isset($_SESSION['logged_in'])) {
+    header('location: account.php');
 }
 
 ?>
