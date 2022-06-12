@@ -63,7 +63,7 @@ if(!empty($_POST)) {
     
                 $_SESSION['toastr'] = array(
                     'type'      => 'error', // or 'success' or 'info' or 'warning'
-                    'message' => 'User doesnt exist',
+                    'message' => 'Email or password incorrect',
                     'title' =>'OK',
                 );
     

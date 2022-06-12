@@ -4,6 +4,19 @@ include __DIR__ . "/server/connection.php";
 
 session_start();
 
+if(!isset($_SESSION['user_id'])) {
+
+    $_SESSION['toastr'] = array(
+        'type'      => 'error', // or 'success' or 'info' or 'warning'
+        'message' => 'Please login first',
+        'title' =>'OK',
+    );
+    
+    header('location: index.php');
+ 
+
+}
+
 ?>
 
 
@@ -118,10 +131,9 @@ session_start();
                             <a href="https://nsfragrances.com/dashboard/account" class="    d-flex border-bottom">
                                 <span class="icon1 mr-3"></span> Account Details
                             </a>
-                            <a href="https://nsfragrances.com/logout" class="   d-flex  border-bottom">
+                            <a href="logout.php" class="   d-flex  border-bottom">
                                 <span class="icon1 mr-3"><i class="fas fa-sign-in-alt"></i></span> Logout
                             </a>
-
 
                         </div>
                     </div>

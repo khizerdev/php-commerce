@@ -28,10 +28,9 @@
 			
 			if(isset($_SESSION['toastr']))
 			{
-			
 				echo 'iziToast.'.$_SESSION['toastr']['type'].'({
-						title: '.'"'.$_SESSION['toastr']['type'].'"'.',
 						message: '.'"'.$_SESSION['toastr']['message'].'"'.',
+						position: "topRight", 
 				})';
 				unset($_SESSION['toastr']);	
 			}

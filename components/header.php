@@ -60,8 +60,19 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">My Account</a>
                                     <ul class="sub-menu">
+                                        <?php 
+                                            $logged_in = isset($_SESSION['logged_in']) ? true : false;
+                                           
+                                        ?>
+                                        <?php if(!$logged_in) { ?>
                                         <li><a href="login.php">Login</a></li>
                                         <li><a href="register.php">Register</a></li>
+                                        <?php } else { ?>
+                                        <li>
+                                            <a href="account.php">Dashboard</a>
+                                            <a href="logout.php">Logout</a>
+                                        </li>
+                                        <?php } ?>
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
