@@ -2,6 +2,8 @@
 
 include __DIR__ . "/server/connection.php";
 
+session_start();
+
 if(isset($_GET['title'])) {
 
     $slug = $_GET['title'];

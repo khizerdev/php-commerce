@@ -25,12 +25,8 @@
                         <div id="navbar" class="collapse navbar-collapse navigation-holder">
                             <button class="menu-close"><i class="ti-close"></i></button>
                             <ul class="nav navbar-nav mb-2 mb-lg-0">
-                                <li class="menu-item-has-children">
-                                    <a class="active" href="#">Home</a>
-                                    <ul class="sub-menu">
-                                        <li><a class="active" href="index.html">Home style 1</a></li>
-                                        <li><a href="index-2.html">Home style 2</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="index.php">Home</a>
                                 </li>
                                 <li>
                                     <a href="about.html">About</a>
@@ -38,38 +34,20 @@
                                 <li>
                                     <a href="shop.html">Shop</a>
                                 </li>
-                                <li class="menu-item-has-children">
-                                    <a href="#">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">Blog right sidebar</a></li>
-                                        <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                                        <li><a href="blog-fullwidth.html">Blog fullwidth</a></li>
-                                        <li class="menu-item-has-children">
-                                            <a href="#">Blog details</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="blog-single.html">Blog details right sidebar</a>
-                                                </li>
-                                                <li><a href="blog-single-left-sidebar.html">Blog details left
-                                                        sidebar</a></li>
-                                                <li><a href="blog-single-fullwidth.html">Blog details
-                                                        fullwidth</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
+                            
                                 <li class="menu-item-has-children">
                                     <a href="#">My Account</a>
                                     <ul class="sub-menu">
                                         <?php 
+                                  
                                             $logged_in = isset($_SESSION['logged_in']) ? true : false;
-                                           
                                         ?>
                                         <?php if(!$logged_in) { ?>
                                         <li><a href="login.php">Login</a></li>
                                         <li><a href="register.php">Register</a></li>
                                         <?php } else { ?>
                                         <li>
-                                            <a href="account.php">Dashboard</a>
+                                            <a href="dashboard.php">Dashboard</a>
                                             <a href="logout.php">Logout</a>
                                         </li>
                                         <?php } ?>

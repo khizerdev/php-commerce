@@ -2,7 +2,10 @@
 <html lang="en">
 
 <meta charset="utf-8">
-  <?php include('components/head.php'); ?>
+  <?php 
+    include('components/head.php'); 
+    session_start();
+    ?>
 <body>
     
     <?php include('components/header.php'); ?>
