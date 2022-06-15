@@ -24,6 +24,12 @@
                     <div class="col-lg-8 col-md-1 col-1">
                         <div id="navbar" class="collapse navbar-collapse navigation-holder">
                             <button class="menu-close"><i class="ti-close"></i></button>
+
+                            <?php 
+                                  
+                                $logged_in = isset($_SESSION['logged_in']) ? true : false;
+                            ?>
+
                             <ul class="nav navbar-nav mb-2 mb-lg-0">
                                 <li>
                                     <a href="index.php">Home</a>
@@ -34,14 +40,13 @@
                                 <li>
                                     <a href="shop.html">Shop</a>
                                 </li>
-                            
+                                <li>
+                                    <a href="contact.html">Contact</a>
+                                </li>
                                 <li class="menu-item-has-children">
-                                    <a href="#">My Account</a>
+                                    <a href="#"><?php echo !$logged_in ? 'Login/Register' : 'My Account'; ?></a>
                                     <ul class="sub-menu">
-                                        <?php 
-                                  
-                                            $logged_in = isset($_SESSION['logged_in']) ? true : false;
-                                        ?>
+                                        
                                         <?php if(!$logged_in) { ?>
                                         <li><a href="login.php">Login</a></li>
                                         <li><a href="register.php">Register</a></li>
@@ -53,7 +58,6 @@
                                         <?php } ?>
                                     </ul>
                                 </li>
-                                <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div><!-- end of nav-collapse -->
                     </div>

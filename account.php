@@ -6,6 +6,21 @@ session_start();
 
 include __DIR__ . "/server/front/auth.php";
 
+if(!empty($_POST)) {
+
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $old_password = $_POST['old_password'];
+    $new_password = $_POST['new_password'];
+    $validation_fail = false;
+
+    if (empty($name)) {
+        
+    }
+    
+
+}
+
 
 
 ?>
