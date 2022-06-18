@@ -6,20 +6,8 @@ session_start();
 
 include __DIR__ . "/server/front/auth.php";
 
-if(!empty($_POST)) {
+include __DIR__ . "/server/front/account.php";
 
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $old_password = $_POST['old_password'];
-    $new_password = $_POST['new_password'];
-    $validation_fail = false;
-
-    if (empty($name)) {
-        
-    }
-    
-
-}
 
 
 
@@ -72,18 +60,18 @@ if(!empty($_POST)) {
                         <form class="card-body" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                             <div class="row mb-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Name" value="<?php echo $_SESSION['name']; ?>" required>
+                                    <input type="text" name="name" class="form-control" placeholder="Name" value="<?php echo $_SESSION['name']; ?>" >
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION['email']; ?>" required>
+                                    <input type="text" name="email"  class="form-control" placeholder="Email" value="<?php echo $_SESSION['email']; ?>" >
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Old Password" >
+                                    <input type="password" name="old_password"  class="form-control" placeholder="Old Password" >
                                 </div>
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="New Password" >
+                                    <input type="password" name="new_password"  class="form-control" placeholder="New Password" >
                                 </div>
                             </div>
                             <div class="row">
